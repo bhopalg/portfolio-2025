@@ -69,19 +69,6 @@ export default function Hero() {
             </motion.div>
           </div>
           <div className="relative">
-            {/* Orbiting gradient ring */}
-            <motion.div
-              className="absolute inset-0 -z-10 mx-auto h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 rounded-full"
-              style={{
-                background:
-                  "conic-gradient(from 180deg at 50% 50%, var(--primary) 0deg, var(--accent) 120deg, transparent 240deg, var(--primary) 360deg)",
-                filter: "blur(40px)",
-                opacity: 0.6,
-              }}
-              animate={{ rotate: 360 }}
-              transition={{ ease: "linear", duration: 30, repeat: Infinity }}
-              aria-hidden="true"
-            />
             <div className="relative mx-auto h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 rounded-2xl border border-[#7C3AED33] bg-primary/60 backdrop-blur overflow-hidden">
               <Image
                 src="/developer-portrait-neon.png"

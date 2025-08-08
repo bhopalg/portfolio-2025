@@ -2,6 +2,7 @@ import Link from "next/link";
 import BackgroundVisualLayers from "@/components/background-visual-layers";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
+import AIShowcase from "@/components/ai-showcase";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <SkipToContent />
       <Header />
       <Hero />
+      <AIShowcase />
     </main>
   );
 }
