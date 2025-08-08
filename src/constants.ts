@@ -1,6 +1,9 @@
 export const DETAILS = {
   name: "Gurpreet Bhopal",
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL!,
+  tagLine:
+    "I design and build fast, reliable, and delightful software—end to end.",
+  role: "Senior Software Developer",
 };
 
 export const NAV = [

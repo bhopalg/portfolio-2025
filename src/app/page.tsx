@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BackgroundVisualLayers from "@/components/background-visual-layers";
 import Header from "@/components/header";
+import Hero from "@/components/hero";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <BackgroundVisualLayers />
       <SkipToContent />
       <Header />
+      <Hero />
     </main>
   );
 }
