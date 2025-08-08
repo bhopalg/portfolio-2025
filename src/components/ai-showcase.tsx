@@ -9,7 +9,6 @@ import {
   Link2,
   Zap,
   Send,
-  Calendar,
   MessagesSquare,
   Sparkles,
   ShieldCheck,
