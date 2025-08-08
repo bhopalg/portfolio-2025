@@ -4,6 +4,12 @@ export const DETAILS = {
   tagLine:
     "I design and build fast, reliable, and delightful software—end to end.",
   role: "Senior Software Developer",
+  socials: {
+    linkedIn: {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/gurpreet-bhopal-063a6a73",
+    },
+  },
 };
 
 export const NAV = [

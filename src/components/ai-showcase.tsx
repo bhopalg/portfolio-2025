@@ -20,6 +20,7 @@ import {
 import SectionHeader from "@/components/section-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { DETAILS } from "@/constants";
 
 export default function AIShowcase() {
   return (
@@ -171,7 +172,7 @@ export default function AIShowcase() {
                   }}
                 >
                   <Link
-                    href="mailto:hello@example.com"
+                    href={`mailto:${DETAILS.contactEmail}`}
                     aria-label="Email me to start a conversation"
                   >
                     <Send className="mr-2 h-4 w-4" />
@@ -184,7 +185,8 @@ export default function AIShowcase() {
                   className="bg-transparent border border-[#7C3AED66] text-foreground hover:bg-[#7C3AED1a]"
                 >
                   <Link
-                    href="https://www.linkedin.com/in/your-handle"
+                    href={DETAILS.socials.linkedIn.href}
+                    aria-label="Message me on LinkedIn"
                     target="_blank"
                     rel="noreferrer"
                   >
