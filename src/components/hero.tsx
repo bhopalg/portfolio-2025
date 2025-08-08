@@ -31,7 +31,7 @@ export default function Hero() {
                   className="block mt-2 bg-clip-text text-transparent"
                   style={{
                     backgroundImage:
-                      "linear-gradient(135deg, #7C3AED 0%, #22D3EE 100%)",
+                      "linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)",
                   }}
                 >
                   {DETAILS.role}
@@ -74,7 +74,7 @@ export default function Hero() {
               className="absolute inset-0 -z-10 mx-auto h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 rounded-full"
               style={{
                 background:
-                  "conic-gradient(from 180deg at 50% 50%, #7C3AED 0deg, #22D3EE 120deg, transparent 240deg, #7C3AED 360deg)",
+                  "conic-gradient(from 180deg at 50% 50%, var(--primary) 0deg, var(--accent) 120deg, transparent 240deg, var(--primary) 360deg)",
                 filter: "blur(40px)",
                 opacity: 0.6,
               }}
@@ -82,16 +82,7 @@ export default function Hero() {
               transition={{ ease: "linear", duration: 30, repeat: Infinity }}
               aria-hidden="true"
             />
-            <motion.div
-              className="relative mx-auto h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 rounded-2xl border border-[#7C3AED33] bg-[#0D0F14]/60 backdrop-blur overflow-hidden"
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.6,
-                ease: [0.22, 1, 0.36, 1],
-                delay: 0.1,
-              }}
-            >
+            <div className="relative mx-auto h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 rounded-2xl border border-[#7C3AED33] bg-primary/60 backdrop-blur overflow-hidden">
               <Image
                 src="/developer-portrait-neon.png"
                 alt={`Portrait of ${DETAILS.name}`}
@@ -107,7 +98,7 @@ export default function Hero() {
                   Building with Next.js and TypeScript
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
