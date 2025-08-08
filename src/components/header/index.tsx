@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Code2 } from "lucide-react";
+
 import DesktopNav from "@/components/header/desktop-nav";
 
 export default function Header() {
@@ -35,13 +36,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  );
-}
-
-function NavLink({ href, label }: { href: string; label: string }) {
-  return (
-    <Link href={href} className="hover:text-accent transition-colors">
-      {label}
-    </Link>
   );
 }
