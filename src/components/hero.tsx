@@ -69,7 +69,12 @@ export default function Hero() {
             </motion.div>
           </div>
           <div className="relative">
-            <div className="relative mx-auto h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 rounded-2xl border border-[#7C3AED33] bg-primary/60 backdrop-blur overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, y: -24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="relative mx-auto h-72 w-72 sm:h-80 sm:w-80 md:h-96 md:w-96 rounded-2xl border border-[#7C3AED33] bg-primary/60 backdrop-blur overflow-hidden"
+            >
               <Image
                 src="/developer-portrait-neon.png"
                 alt={`Portrait of ${DETAILS.name}`}
@@ -85,7 +90,7 @@ export default function Hero() {
                   Building with Next.js and TypeScript
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
