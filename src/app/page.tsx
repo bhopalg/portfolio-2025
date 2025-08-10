@@ -1,8 +1,12 @@
 import Link from "next/link";
+
 import BackgroundVisualLayers from "@/components/background-visual-layers";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import AIShowcase from "@/components/ai-showcase";
+import Projects from "@/components/projects";
+import Socials from "@/components/socials";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -12,6 +16,9 @@ export default function Home() {
       <Header />
       <Hero />
       <AIShowcase />
+      <Projects />
+      <Socials />
+      <Footer />
     </main>
   );
 }
