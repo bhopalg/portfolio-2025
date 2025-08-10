@@ -1,7 +1,6 @@
 "use client";
-
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
@@ -24,93 +23,126 @@ export default function ProjectCard({
   links?: Links;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [t, setT] = useState({ rx: 0, ry: 0, s: 1 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const prefersReducedMotion = useReducedMotion();
+  const [hovered, setHovered] = useState(false);
 
-  function onMove(e: React.MouseEvent) {
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width;
-    const py = (e.clientY - rect.top) / rect.height;
-    const ry = (px - 0.5) * 10; // rotateY
-    const rx = (0.5 - py) * 10; // rotateX
-    setT({ rx, ry, s: 1.01 });
-  }
-  function onLeave() {
-    setT({ rx: 0, ry: 0, s: 1 });
-  }
+  const letters = Array.from(title);
+  const charVariants = {
+    rest: { y: 0, rotate: 0 },
+    hover: prefersReducedMotion ? { y: 0, rotate: 0 } : { y: -2, rotate: 0.15 },
+  };
 
   return (
     <motion.article
-      ref={ref}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
       initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
+      whileInView={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        delay: index * 0.06,
+        delay: index * 0.12,
         duration: 0.5,
         ease: [0.22, 1, 0.36, 1],
       }}
-      style={{
-        transform: `perspective(900px) rotateX(${t.rx}deg) rotateY(${t.ry}deg) scale(${t.s})`,
-        transformStyle: "preserve-3d",
-        willChange: "transform",
-      }}
-      className="group relative rounded-2xl border border-[#7C3AED40] bg-[#0D0F14] overflow-hidden"
+      className="relative h-full"
     >
+      {/* Card */}
       <div
-        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{
-          background:
-            "linear-gradient(135deg, #7C3AED55 0%, #22D3EE55 50%, transparent 80%)",
-          filter: "blur(16px)",
-        }}
-        aria-hidden="true"
-      />
-      <div className="relative">
-        <Image
-          src={image || "/placeholder.svg"}
-          alt={`${title} preview`}
-          width={1280}
-          height={720}
-          className="h-44 sm:h-48 md:h-40 lg:h-44 w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0F14] via-transparent to-transparent opacity-60" />
-      </div>
-      <div className="relative p-5 space-y-3">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-sm text-[#E5E7EB]/75">{description}</p>
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-[#7C3AED66]/70 px-2 py-0.5 text-xs text-[#E5E7EB]/90"
-            >
-              {tag}
-            </span>
-          ))}
+        ref={ref}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="group relative h-full rounded-2xl border border-[#7C3AED40] bg-primary-foreground overflow-hidden flex flex-col hover:scale-[1.02] transition-transform duration-200"
+      >
+        {/* Media */}
+        <div className="relative">
+          <Image
+            src={
+              image ||
+              "/placeholder.svg?height=720&width=1280&query=project%20preview" ||
+              "/placeholder.svg"
+            }
+            alt={`${title} preview`}
+            width={1280}
+            height={720}
+            className="h-44 sm:h-48 md:h-44 lg:h-48 w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-foreground via-transparent to-transparent opacity-60" />
         </div>
-        <div className="flex items-center gap-3 pt-1">
-          {links.live ? (
-            <Link
-              href={links.live}
-              className="inline-flex items-center gap-1 text-sm text-[#22D3EE] hover:opacity-90"
-            >
-              <ExternalLink className="h-4 w-4" />
-              Live
-            </Link>
-          ) : null}
-          {links.repo ? (
-            <Link
-              href={links.repo}
-              className="inline-flex items-center gap-1 text-sm text-[#E5E7EB] hover:text-[#22D3EE]"
-            >
-              <Github className="h-4 w-4" />
-              Code
-            </Link>
-          ) : null}
+
+        {/* Content */}
+        <div className="relative p-5 flex flex-col gap-3 grow">
+          {/* Animated title */}
+          <h3 className="text-lg font-semibold">
+            <span className="relative inline-block">
+              {letters.map((ch, i) => (
+                <motion.span
+                  key={`${ch}-${i}`}
+                  variants={charVariants}
+                  initial="rest"
+                  animate={hovered ? "hover" : "rest"}
+                  transition={{
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 30,
+                    delay: hovered ? i * 0.015 : 0,
+                  }}
+                  className="inline-block will-change-transform"
+                  aria-hidden="true"
+                >
+                  {ch === " " ? "\u00A0" : ch}
+                </motion.span>
+              ))}
+              <span className="sr-only">{title}</span>
+              <motion.span
+                className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full"
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)",
+                  transformOrigin: "left",
+                }}
+                initial={{ scaleX: 0, opacity: 0.7 }}
+                animate={{
+                  scaleX: hovered ? 1 : 0,
+                  opacity: hovered ? 1 : 0.7,
+                }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                aria-hidden="true"
+              />
+            </span>
+          </h3>
+
+          <p className="text-sm text-[#E5E7EB]/75">{description}</p>
+
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-[#7C3AED66]/70 px-2 py-0.5 text-xs text-foreground/90"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Actions pinned to bottom */}
+          <div className="flex items-center gap-3 pt-1 mt-auto">
+            {links.live ? (
+              <Link
+                href={links.live}
+                className="inline-flex items-center gap-1 text-sm text-accent hover:opacity-90"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Live
+              </Link>
+            ) : null}
+            {links.repo ? (
+              <Link
+                href={links.repo}
+                className="inline-flex items-center gap-1 text-sm text-foreground hover:text-accent"
+              >
+                <Github className="h-4 w-4" />
+                Code
+              </Link>
+            ) : null}
+          </div>
         </div>
       </div>
     </motion.article>
