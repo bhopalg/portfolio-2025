@@ -152,7 +152,7 @@ export default function AIShowcase() {
                 <div className="grid gap-2 sm:grid-cols-2">
                   <Feature
                     icon={Webhook}
-                    label="Integrations (Stripe, Slack, Notion, GitHub…)"
+                    label="Integrations (Teams, Slack, Notion…)"
                   />
                   <Feature icon={Bot} label="LLM prompting + evaluation" />
                   <Feature icon={Link2} label="Enrichment & data stitching" />
