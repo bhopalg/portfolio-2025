@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Code2 } from "lucide-react";
 
 import DesktopNav from "@/components/header/desktop-nav";
+import { DETAILS } from "@/constants";
 
 export default function Header() {
   return (
@@ -29,7 +30,9 @@ export default function Header() {
               >
                 <Code2 className="h-5 w-5 text-primary-foreground" />
               </div>
-              <span className="font-semibold tracking-tight">Alex Doe</span>
+              <span className="font-semibold tracking-tight">
+                {DETAILS.name}
+              </span>
             </Link>
             <DesktopNav />
           </div>

@@ -2,6 +2,7 @@ import Hero from "@/components/hero";
 import AIShowcase from "@/components/ai-showcase";
 import Projects from "@/components/projects";
 import Socials from "@/components/socials";
+import AboutExperience from "@/components/about-experience";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <AIShowcase />
       <Projects />
+      <AboutExperience />
       <Socials />
     </main>
   );
