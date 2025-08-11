@@ -8,6 +8,12 @@ export const DETAILS = {
     linkedIn: {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/gurpreet-bhopal-063a6a73",
+      handle: "in/gurpreet-bhopal-063a6a73",
+    },
+    github: {
+      name: "Github",
+      href: "https://github.com/bhopalg",
+      handle: "bhopalg",
     },
   },
 };
