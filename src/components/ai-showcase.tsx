@@ -139,7 +139,7 @@ function WorkWithMe() {
               rel="noreferrer"
             >
               <MessagesSquare className="mr-2 h-4 w-4" />
-              Message on LinkedIn
+              Message me on LinkedIn
             </Link>
           </Button>
         </div>
