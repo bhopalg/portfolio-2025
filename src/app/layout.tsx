@@ -15,8 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Gurpreet Bhopal | Senior Software Developer & AI Automation Specialist",
+  title: "Gurpreet Bhopal | Senior Developer & AI Automation Expert",
   creator: "Gurpreet Bhopal",
   keywords: [
     "Gurpreet Bhopal",
