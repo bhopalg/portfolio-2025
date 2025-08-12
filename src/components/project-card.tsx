@@ -127,6 +127,7 @@ export default function ProjectCard({
             {links.live ? (
               <Link
                 href={links.live}
+                target="_blank"
                 className="inline-flex items-center gap-1 text-sm text-accent hover:opacity-90"
               >
                 <ExternalLink className="h-4 w-4" />
@@ -135,6 +136,7 @@ export default function ProjectCard({
             ) : null}
             {links.repo ? (
               <Link
+                target="_blank"
                 href={links.repo}
                 className="inline-flex items-center gap-1 text-sm text-foreground hover:text-accent"
               >

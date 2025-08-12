@@ -3,28 +3,27 @@ import ProjectCard from "@/components/project-card";
 
 const projects = [
   {
-    title: "n8n AI Automation",
+    title: "Cultur3",
     description:
-      "Composable automation with LLM-in-the-loop: webhook triggers, prompt guardrails, and reliable retries that route insights to Slack and Notion.",
-    image: "/n8n-ai-automation.png",
-    tags: ["n8n", "AI", "Webhooks", "LLM"],
-    links: { live: "#", repo: "#" },
+      "Members-only music events with R&B, Hip Hop, Afrobeats & Desi sounds in curated venues. Built with Next.js, Supabase, and Stripe.",
+    image: "/cultur3.jpg",
+    tags: ["Next.js", "Supabase", "Stripe", "S3"],
+    links: { live: "https://www.cultur3.co.uk" },
   },
   {
-    title: "Nebula Boards",
-    description:
-      "A real-time collaborative task board with multiplayer cursors, CRDT sync, and offline-first UX.",
-    image: "/placeholder.png",
-    tags: ["Next.js", "Edge Functions", "WebSockets", "CRDT"],
-    links: { live: "#", repo: "#" },
+    title: "Cultur3 Dashboard",
+    description: "Admin dashboard for members, tickets, and event data.",
+    image: "/cultur3-dashboard.jpg",
+    tags: ["Next.js", "Supabase", "S3"],
+    links: { live: "https://dashboard.cultur3.co.uk" },
   },
   {
-    title: "Astra Vision",
+    title: "Nimkish",
     description:
-      "AI-powered analytics for SaaS teams. Segment events, auto-build funnels, and forecast churn with explainable models.",
-    image: "/ai-analytics-dashboard-neon.png",
-    tags: ["TypeScript", "Postgres", "AI SDK", "Prisma"],
-    links: { live: "#", repo: "#" },
+      "A modern, responsive website for spicy pack distributor, showcasing their menu and ambiance. Built with Next.js and Tailwind CSS.",
+    image: "/nimkish.jpg",
+    tags: ["TypeScript", "Next.js", "Tailwind CSS"],
+    links: { live: "https://www.nimkishpt.com/" },
   },
 ];
 
