@@ -3,11 +3,10 @@
 import { Sparkles, Star } from "lucide-react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 import SectionHeader from "@/components/section-header";
 import { Badge } from "@/components/ui/badge";
-import AnimatedNumber from "@/components/animated-number";
-import { useRef } from "react";
 
 export default function AboutExperience() {
   return (
@@ -59,9 +58,9 @@ function RightPanel() {
           className="rounded-xl object-cover"
         />
         <div className="mt-6 grid grid-cols-3 gap-4 text-center">
-          <Stat label="Products shipped" end={30} suffix="+" />
-          <Stat label="Teams led" end={6} />
-          <Stat label="Prod deployments" end={1000} suffix="+" compact />
+          <Stat label="Products shipped" value="30+" />
+          <Stat label="Teams led" value="6" />
+          <Stat label="Prod deployments" value="1k+" />
         </div>
       </div>
     </motion.div>
@@ -124,30 +123,11 @@ function LeftPanel() {
   );
 }
 
-function Stat({
-  label = "Label",
-  end = 100,
-  suffix = "",
-  compact = false,
-  decimals = 0,
-}: {
-  label?: string;
-  end?: number;
-  suffix?: string;
-  compact?: boolean;
-  decimals?: number;
-}) {
+function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-lg border border-[#7C3AED33] bg-[#0D0F14] p-4">
-      <div className="text-2xl font-semibold" style={{ color: "#22D3EE" }}>
-        <AnimatedNumber
-          end={end}
-          suffix={suffix}
-          compact={compact}
-          decimals={decimals}
-        />
-      </div>
-      <div className="text-xs text-[#E5E7EB]/70">{label}</div>
+    <div className="rounded-lg border border-[#7C3AED33] bg-background p-4">
+      <div className="text-2xl font-semibold text-accent">{value}</div>
+      <div className="text-xs text-foreground/70">{label}</div>
     </div>
   );
 }
