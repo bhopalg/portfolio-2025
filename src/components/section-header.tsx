@@ -43,7 +43,7 @@ function Subtitle({ subtitle, align }: { subtitle: string; align?: Align }) {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
       className={cn(
-        "mt-3 text-sm sm:text-base text-[#E5E7EB]/75",
+        "mt-3 text-sm sm:text-base text-foreground/75",
         align === "center" ? "mx-auto max-w-2xl" : "max-w-2xl",
       )}
     >
@@ -62,7 +62,7 @@ function Title({ title }: { title: string }) {
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-      className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight"
+      className="text-2xl mt-3 sm:text-3xl md:text-4xl font-semibold tracking-tight"
     >
       {title}
     </motion.h2>
