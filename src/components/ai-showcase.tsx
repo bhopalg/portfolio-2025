@@ -216,7 +216,7 @@ function HighlightCard() {
             width={1400}
             height={900}
             className="w-full object-cover"
-            priority
+            title="n8n workflow canvas with AI reasoning steps"
           />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0D0F14] to-transparent p-5">
             <div className="flex flex-wrap items-center gap-3 text-sm">

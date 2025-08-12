@@ -60,6 +60,7 @@ export default function ProjectCard({
               "/placeholder.svg"
             }
             alt={`${title} preview`}
+            title={title}
             width={1280}
             height={720}
             className="h-44 sm:h-48 md:h-44 lg:h-48 w-full object-cover"

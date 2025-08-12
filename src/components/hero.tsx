@@ -82,6 +82,7 @@ export default function Hero() {
                 height={960}
                 className="h-full w-full object-cover"
                 priority
+                title={`Portrait of ${DETAILS.name}`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-accent-foreground via-transparent to-transparent opacity-60" />
               <div className="absolute bottom-0 w-full p-4">

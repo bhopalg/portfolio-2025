@@ -56,6 +56,7 @@ function RightPanel() {
           width={960}
           height={640}
           className="rounded-xl object-cover"
+          title="Developer workspace with a violet and teal theme"
         />
         <div className="mt-6 grid grid-cols-3 gap-4 text-center">
           <Stat label="Products shipped" value="30+" />
