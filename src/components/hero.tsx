@@ -46,7 +46,7 @@ export default function Hero() {
                   className="text-background"
                   style={{
                     backgroundImage:
-                      "linear-gradient(135deg, #7C3AED 0%, #22D3EE 100%)",
+                      "linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)",
                   }}
                 >
                   <Link
